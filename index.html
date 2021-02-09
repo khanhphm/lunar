@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Chúc Mừng Năm Mới | Tân Sửu</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="amlich-hnd.js"></script>
+	<script src="control.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+	<div class="countdown">
+		<canvas id="Canvas"></canvas>
+    	<script src="app.js"></script>
+    	<div class="cover">
+    		<div class="count"></div>
+    	</div>
+	</div>
+	<div class="time">
+		<div class="clock">
+			<div class="hour">
+				<div class="hr" id="hr"></div>
+			</div>
+			<div class="min">
+				<div class="mn" id="mn"></div>
+			</div>
+			<div class="sec">
+				<div class="sc" id="sc"></div>
+			</div>
+
+		</div>
+	
+	</div>
+	<div class="slide">
+		<input type="text" class="in" placeholder="Dán link nhạc Youtube">
+		<button class="button" type="button" ></button>
+		<script>
+			$(".button").click(function() {
+				var lin = $(".in").val();//+"?autoplay=1&loop=1&controls=0";
+				var l = lin.length;
+
+				if(lin.lastIndexOf("=")<0){
+					var po = lin.lastIndexOf("/")+1;
+				}
+				else{
+					var po = lin.lastIndexOf("=")+1;	
+				}
+				
+				var id = lin.slice(po, l)+"?autoplay=1";
+				var be = "https://www.youtube.com/embed/";
+				var link = be.concat(id);
+				console.log(link);
+				var add = "<iframe width='1' height='1'  src='"+link+"'></iframe>";
+				$(".au").html(add);
+			});
+		</script>	
+		<button class="out" type="button" >|||</button>
+		<script>
+			var s='';
+			var t = 0;
+			$(".out").click(function(){
+  	
+    			t=-Math.abs(t+310);
+    			s=t+"px";
+   				$(".slide").animate({left: s});
+  			});  
+		</script>
+	</div>
+
+	<div class="au"></div>
+
+</body>
+</html>
